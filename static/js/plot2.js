@@ -72,7 +72,10 @@ async function getData(){
 const response = await fetch(api_url)
 const data = await response.json();
 console.log(data)
-
+let data0 = data
+data0 = data0.sort(function(a, b) {
+return (b.Life_ladder) - (a.Life_ladder);
+})
 let xl = []
 let yl = []
 let y2 = []
@@ -83,15 +86,15 @@ let y6 = []
 let label = []
 for (var i=0; i< data.length; i++){
   if ( data[i]['Life_ladder']>2.99 && data[i]['Life_ladder']<=7 ){
-  xl.push(data[i]['year'])
-  yl.push(data[i]['Life_ladder'])
-  y2.push(data[i]['GDP_per_capita'])
-  y3.push(data[i]['Life_expectancy'])
-  y4.push(data[i]['Social_support'])
-  y5.push(data[i]['Corruption'])
-  y6.push(data[i]['Freedom'])
-  label.push(data[i]['Country']) }
-  }
+    xl.push(data0[i]['year'])
+    yl.push(data0[i]['Life_ladder'])
+    y2.push(data0[i]['GDP_per_capita'])
+    y3.push(data0[i]['Life_expectancy'])
+    y4.push(data0[i]['Social_support'])
+    y5.push(data0[i]['Corruption'])
+    y6.push(data0[i]['Freedom'])
+    label.push(data0[i]['Country']) }
+    }
 var trace1 = {
     x: xl,
     y: yl,
