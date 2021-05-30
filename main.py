@@ -74,7 +74,7 @@ try:
     selection = "SELECT * FROM main" 
     cursor.execute(selection)
     main = cursor.fetchall()
-    main_df = pd.DataFrame(zero_two)
+    main_df = pd.DataFrame(main)
 except (Exception, psycopg2.Error) as error : 
     print ("Error", error)
 finally: 
