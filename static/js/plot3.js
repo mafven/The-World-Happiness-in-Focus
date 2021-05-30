@@ -99,7 +99,7 @@ var trace1 = {
     type: 'bar',
     name: 'Life_ladder',
     marker: {
-      color: '#845EC2',
+      color: '#F9F871',
       opacity: 0.8,
     }
   };
