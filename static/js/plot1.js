@@ -222,8 +222,24 @@ var trace1 = {
     }
   };
 
-  var data1 = [trace1, trace2, trace3,trace5, trace4];
-  
+  var trace6 = {
+    x: xl,
+    y: y3,
+    text:label,
+    type: 'bar',
+    name: 'Life_expectancy',
+    marker: {
+      color: '#FFC351',
+      opacity: 0.5
+    }
+  };
+
+  var data1 = [trace1, trace2];
+  var data2 = [trace1, trace3];
+  var data3 = [trace1, trace5];
+  var data4 = [trace1, trace4];
+  var data5 = [trace1, trace6];
+
   var layout = {
     title: 'Title',
     xaxis: {
@@ -232,23 +248,14 @@ var trace1 = {
     barmode: 'group'
   };
   
-  Plotly.newPlot('bar', data1, layout);
-
+  Plotly.newPlot('plot1', data1, layout);
+  Plotly.newPlot('plot2', data2, layout);
+  Plotly.newPlot('plot3', data3, layout);
+  Plotly.newPlot('plot4', data4, layout);
+  Plotly.newPlot('plot5', data4, layout);
 }
   
 getData();
-
-  var data1 = [trace1, trace2, trace3, trace4];
-  
-  var layout = {
-    title: 'Title',
-    xaxis: {
-      tickangle: -45
-    },
-    barmode: 'group'
-  };
-  
-  Plotly.newPlot('bar', data1, layout);
 
 }
   
