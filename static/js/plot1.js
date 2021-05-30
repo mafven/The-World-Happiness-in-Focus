@@ -69,7 +69,7 @@ getData_main();
 
 const api_url = '/api/main'
 async function getData(){
-  const response = await fetch(api_url)
+const response = await fetch(api_url)
 const data = await response.json();
 console.log(data)
 
@@ -82,86 +82,16 @@ let y5 = []
 let y6 = []
 let label = []
 for (var i=0; i< data.length; i++){
-xl.push(data[i]['year'])
-yl.push(data[i]['Life_ladder'])
-y2.push(data[i]['GDP_per_capita'])
-y3.push(data[i]['Life_expectancy'])
-y4.push(data[i]['Social_support'])
-y5.push(data[i]['Corruption'])
-y6.push(data[i]['Freedom'])
-label.push(data[i]['Country']) }
-
-var trace1 = {
-    x: xl,
-    y: yl,
-    text:label,
-    type: 'bar',
-    name: 'Life_ladder',
-    marker: {
-      color: '#845EC2',
-      opacity: 0.8,
-    }
-  };
-  
-  var trace2 = {
-    x: xl,
-    y: y2,
-    text:label,
-    type: 'bar',
-    name: 'GDP per capita',
-    marker: {
-      color: '#D02B7D',
-      opacity: 0.6
-    }
-  };
-
-  var trace3 = {
-    x: xl,
-    y: y4,
-    text:label,
-    type: 'bar',
-    name: 'Social_support',
-    marker: {
-      color: '##F85766',
-      opacity: 0.6
-    }
-  };
-
-  var trace4 = {
-    x: xl,
-    y: y5,
-    text:label,
-    type: 'bar',
-    name: 'Corruption',
-    marker: {
-      color: '#FF8C53',
-      opacity: 0.6
-    }
-  };
-
-  async function getData(){
-  const response = await fetch(api_url)
-const data = await response.json();
-console.log(data)
-
-let xl = []
-let yl = []
-let y2 = []
-let y3 = []
-let y4 = []
-let y5 = []
-let y6 = []
-let label = []
-for (var i=0; i< data.length; i++){
-xl.push(data[i]['year'])
-yl.push(data[i]['Life_ladder'])
-y2.push(data[i]['GDP_per_capita'])
-y3.push(data[i]['Life_expectancy'])
-y4.push(data[i]['Social_support'])
-y5.push(data[i]['Corruption'])
-y6.push(data[i]['Freedom'])
-label.push(data[i]['Country']) }
-
+  if (data[i]['Life_ladder']<=2.99){
+  xl.push(data[i]['year'])
+  yl.push(data[i]['Life_ladder'])
+  y2.push(data[i]['GDP_per_capita'])
+  y3.push(data[i]['Life_expectancy'])
+  y4.push(data[i]['Social_support'])
+  y5.push(data[i]['Corruption'])
+  y6.push(data[i]['Freedom'])
+  label.push(data[i]['Country']) }
+  }
 var trace1 = {
     x: xl,
     y: yl,
@@ -227,7 +157,7 @@ var trace1 = {
     y: y3,
     text:label,
     type: 'bar',
-    name: 'Life_expectancy',
+    name: 'Freedom',
     marker: {
       color: '#FFC351',
       opacity: 0.5
@@ -252,12 +182,10 @@ var trace1 = {
   Plotly.newPlot('plot2', data2, layout);
   Plotly.newPlot('plot3', data3, layout);
   Plotly.newPlot('plot4', data4, layout);
-  Plotly.newPlot('plot5', data4, layout);
+  Plotly.newPlot('plot5', data5, layout)
 }
-  
+
 getData();
 
-}
-  
-getData();
+
 
