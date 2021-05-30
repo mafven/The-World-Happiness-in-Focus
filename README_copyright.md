@@ -1,4 +1,4 @@
-NOTE######
+NOTE - 
 The original home page template was obtained from StartBootstrap as shown below. The css, htm, js has been modified for use in this final project.
 
 
