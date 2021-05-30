@@ -81,6 +81,7 @@ let y5 = []
 let y6 = []
 let label = []
 for (var i=0; i< data.length; i++){
+  if (data[i]['Life_ladder'] <= 3){
   xl.push(data[i]['year'])
   yl.push(data[i]['Life_ladder'])
   y2.push(data[i]['GDP_per_capita'])
@@ -89,101 +90,84 @@ for (var i=0; i< data.length; i++){
   y5.push(data[i]['Corruption'])
   y6.push(data[i]['Freedom'])
   label.push(data[i]['Country']) }
-  
+
+  xl = xl.slice(0,10).reverse()
+  yl =  yl.slice(0,10).reverse()
+  label =  label.slice(0,10).reverse()
+
 var trace1 = {
-x: xl,
+x: label,
 y: yl,
-    text:label,
+    text:xl,
     type: 'bar',
+    // orientation:"h",
     name: 'Life_ladder',
     marker: {
       color: '#845EC2',
       opacity: 0.8,
     }
   };
-  
-  var trace2 = {
-    x: xl,
-    y: y2,
-    text:label,
-    type: 'scatter',
-    name: 'GDP per capita',
-    marker: {
-      color: '#D02B7D',
-      opacity: 0.6
-    }
-  };
 
-  var trace3 = {
-    x: xl,
-    y: y4,
-    text:label,
-    type: 'bar',
-    name: 'Social_support',
-    marker: {
-      color: '##F85766',
-      opacity: 0.6
-    }
-  };
-
-  var trace4 = {
-    x: xl,
-    y: y5,
-    text:label,
-    type: 'bar',
-    name: 'Corruption',
-    marker: {
-      color: '#FF8C53',
-      opacity: 0.6
-    }
-  };
-
-  var trace5 = {
-    x: xl,
-    y: y6,
-    text:label,
-    type: 'bar',
-    name: 'Freedom',
-    marker: {
-      color: '#FFC351',
-      opacity: 0.5
-    }
-  };
-
-  var trace6 = {
-    x: xl,
-    y: y3,
-    text:label,
-    type: 'bar',
-    name: 'Freedom',
-    marker: {
-      color: '#FFC351',
-      opacity: 0.5
-    }
-  };
-
-  var data1 = [trace1, trace2];
-  var data2 = [trace1, trace3];
-  var data3 = [trace1, trace5];
-  var data4 = [trace1, trace4];
-  var data5 = [trace1, trace6];
-
+  var data1 = [trace1];
   var layout = {
     title: 'Title',
+    width:600, 
+    height:400,
     xaxis: {
-      tickangle: -45
+    tickangle: -45
     },
     barmode: 'group'
   };
+
+  var data2 = [{
+    type: 'scatter',
+    mode: 'markers',
+    x: yl,
+    y: y2,
+    text:  label,
+    marker: {
+      size:  yl*20000000,
+      sizemode: "area",
+    },
+    transforms: [
+      {
+      type: 'filter',
+      target: yl,
+      operation: '<=',
+      value: '3'
+      }, {
+      type: 'groupby',
+      groups:  xl,
+      styles: [
+        {target: '2008', value: {marker: {color: 'red'}}},
+        {target: '2009', value: {marker: {color: 'blue'}}},
+        {target: '2010', value: {marker: {color: 'orange'}}},
+        {target: '2011', value: {marker: {color: 'green'}}},
+        {target: '2012', value: {marker: {color: 'green'}}},
+        {target: '2013', value: {marker: {color: 'green'}}},
+        {target: '2014', value: {marker: {color: 'green'}}},
+        {target: '2016', value: {marker: {color: 'green'}}},
+        {target: '2017', value: {marker: {color: 'green'}}},
+        {target: '2018', value: {marker: {color: 'green'}}},
+        {target: '2019', value: {marker: {color: 'green'}}},
+        {target: '2020', value: {marker: {color: 'purple'}}}
+      ]
+}]
+  }]
+
+var layout = {
+yaxis: {
+  type: 'log'
+}
+}
   
   Plotly.newPlot('plot1', data1, layout);
   Plotly.newPlot('plot2', data2, layout);
-  Plotly.newPlot('plot3', data3, layout);
-  Plotly.newPlot('plot4', data4, layout);
-  Plotly.newPlot('plot5', data5, layout)
+  // Plotly.newPlot('plot3', data3, layout);
+  // Plotly.newPlot('plot4', data4, layout);
+  // Plotly.newPlot('plot5', data5, layout)
 
 }
+}
 getData();
-
-
 
