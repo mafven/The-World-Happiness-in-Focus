@@ -72,10 +72,6 @@ async function getData(){
 const response = await fetch(api_url)
 const data = await response.json();
 console.log(data)
-let data0 = data
-data0 = data0.sort(function(a, b) {
-return (b.Life_ladder, 1) - (a.Life_ladder, 1);
-})
 let xl = []
 let yl = []
 let y2 = []
@@ -84,20 +80,19 @@ let y4 = []
 let y5 = []
 let y6 = []
 let label = []
-for (var i=0; i< data0.length; i++){
-   if (data0[i]['Life_ladder']<=2.99){
-  xl.push(data0[i]['year'])
-  yl.push(data0[i]['Life_ladder'])
-  y2.push(data0[i]['GDP_per_capita'])
-  y3.push(data0[i]['Life_expectancy'])
-  y4.push(data0[i]['Social_support'])
-  y5.push(data0[i]['Corruption'])
-  y6.push(data0[i]['Freedom'])
-  label.push(data0[i]['Country']) }
-  }
+for (var i=0; i< data.length; i++){
+  xl.push(data[i]['year'])
+  yl.push(data[i]['Life_ladder'])
+  y2.push(data[i]['GDP_per_capita'])
+  y3.push(data[i]['Life_expectancy'])
+  y4.push(data[i]['Social_support'])
+  y5.push(data[i]['Corruption'])
+  y6.push(data[i]['Freedom'])
+  label.push(data[i]['Country']) }
+  
 var trace1 = {
-    x: xl,
-    y: yl,
+x: xl,
+y: yl,
     text:label,
     type: 'bar',
     name: 'Life_ladder',
@@ -111,7 +106,7 @@ var trace1 = {
     x: xl,
     y: y2,
     text:label,
-    type: 'bar',
+    type: 'scatter',
     name: 'GDP per capita',
     marker: {
       color: '#D02B7D',
@@ -186,8 +181,8 @@ var trace1 = {
   Plotly.newPlot('plot3', data3, layout);
   Plotly.newPlot('plot4', data4, layout);
   Plotly.newPlot('plot5', data5, layout)
-}
 
+}
 getData();
 
 
