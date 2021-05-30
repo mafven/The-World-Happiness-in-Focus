@@ -71,7 +71,7 @@ try:
                                   port = "5432", 
                                   database = "dcsho1ugg2d49i")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
-    selection = "SELECT * FROM main" 
+    selection = "SELECT * FROM happinessoveryears" 
     cursor.execute(selection)
     main = cursor.fetchall()
     main_df = pd.DataFrame(main)
