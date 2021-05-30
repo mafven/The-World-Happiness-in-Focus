@@ -11,64 +11,6 @@ try:
                                   password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
                                   host = "ec2-54-224-194-214.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "dcsho1ugg2d49i") 
-    cursor = connection.cursor(cursor_factory=RealDictCursor)
-    selection = "SELECT * FROM three" 
-    cursor.execute(selection)
-    three = cursor.fetchall()
-    three_df = pd.DataFrame(three)
-except (Exception, psycopg2.Error) as error : 
-    print ("Error", error)
-finally: 
-    if connection:
-        cursor.close()
-        connection.close()
-        print("Connection closed")
-
-try: 
-    connection = psycopg2.connect(user = "zzvkedujbigpex", 
-                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
-                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
-                                  port = "5432", 
-                                  database = "dcsho1ugg2d49i")
-    cursor = connection.cursor(cursor_factory=RealDictCursor)
-    selection = "SELECT * FROM seven" 
-    cursor.execute(selection)
-    seven = cursor.fetchall()
-    seven_df = pd.DataFrame(seven)
-except (Exception, psycopg2.Error) as error : 
-    print ("Error", error)
-finally: 
-    if connection:
-        cursor.close()
-        connection.close()
-        print("Connection closed")
-
-try: 
-    connection = psycopg2.connect(user = "zzvkedujbigpex", 
-                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
-                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
-                                  port = "5432", 
-                                  database = "dcsho1ugg2d49i") 
-    cursor = connection.cursor(cursor_factory=RealDictCursor)
-    selection = "SELECT * FROM ten" 
-    cursor.execute(selection)
-    ten = cursor.fetchall()
-    ten_df = pd.DataFrame(ten)
-except (Exception, psycopg2.Error) as error : 
-    print ("Error", error)
-finally: 
-    if connection:
-        cursor.close()
-        connection.close()
-        print("Connection closed")
-
-
-try: 
-    connection = psycopg2.connect(user = "zzvkedujbigpex", 
-                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
-                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
-                                  port = "5432", 
                                   database = "dcsho1ugg2d49i")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM happinessoveryears" 
@@ -105,27 +47,6 @@ def plot3():
 def template(): 
     return render_template("plot_template.html")
 
-
-@app.route("/api/three")
-def three():
-    result = three_df.to_json(orient="records")
-    parsed = json.loads(result)
-    three_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
-    return three_df_json
-
-@app.route("/api/seven")
-def seven():
-    result = seven_df.to_json(orient="records")
-    parsed = json.loads(result)
-    seven_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
-    return seven_json
-
-@app.route("/api/ten")
-def ten():
-    result = ten_df.to_json(orient="records")
-    parsed = json.loads(result)
-    ten_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
-    return ten_df_json
 
 @app.route("/api/main")
 def main():

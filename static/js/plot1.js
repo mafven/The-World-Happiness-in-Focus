@@ -67,7 +67,7 @@ Plotly.newPlot("main", data, layout, {showLink: false});
 }
 getData_main();
 
-const api_url = '/api/three'
+const api_url = '/api/main'
 async function getData(){
   const response = await fetch(api_url)
 const data = await response.json();
@@ -238,7 +238,7 @@ var trace1 = {
   
 getData();
 
-  var data1 = [trace1, trace2, trace3,trace5, trace4];
+  var data1 = [trace1, trace2, trace3, trace4];
   
   var layout = {
     title: 'Title',
