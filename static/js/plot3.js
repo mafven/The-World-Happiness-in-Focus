@@ -67,7 +67,7 @@ Plotly.newPlot("main", data, layout, {showLink: false});
 }
 getData_main();
 
-const api_url = '/api/ten'
+const api_url = '/api/main'
 async function getData(){
   const response = await fetch(api_url)
 const data = await response.json();
@@ -82,15 +82,16 @@ let y5 = []
 let y6 = []
 let label = []
 for (var i=0; i< data.length; i++){
-xl.push(data[i]['year'])
-yl.push(data[i]['Life_ladder'])
-y2.push(data[i]['GDP_per_capita'])
-y3.push(data[i]['Life_expectancy'])
-y4.push(data[i]['Social_support'])
-y5.push(data[i]['Corruption'])
-y6.push(data[i]['Freedom'])
-label.push(data[i]['Country']) }
-
+  if ( data[i]['Life_ladder']>3 && data[i]['Life_ladder']<=10 ){
+  xl.push(data[i]['year'])
+  yl.push(data[i]['Life_ladder'])
+  y2.push(data[i]['GDP_per_capita'])
+  y3.push(data[i]['Life_expectancy'])
+  y4.push(data[i]['Social_support'])
+  y5.push(data[i]['Corruption'])
+  y6.push(data[i]['Freedom'])
+  label.push(data[i]['Country']) }
+  }
 var trace1 = {
     x: xl,
     y: yl,
@@ -151,8 +152,24 @@ var trace1 = {
     }
   };
 
-  var data1 = [trace1, trace2, trace3,trace5, trace4];
-  
+  var trace6 = {
+    x: xl,
+    y: y3,
+    text:label,
+    type: 'bar',
+    name: 'Freedom',
+    marker: {
+      color: '#FFC351',
+      opacity: 0.5
+    }
+  };
+
+  var data1 = [trace1, trace2];
+  var data2 = [trace1, trace3];
+  var data3 = [trace1, trace5];
+  var data4 = [trace1, trace4];
+  var data5 = [trace1, trace6];
+
   var layout = {
     title: 'Title',
     xaxis: {
@@ -161,8 +178,11 @@ var trace1 = {
     barmode: 'group'
   };
   
-  Plotly.newPlot('bar', data1, layout);
-
+  Plotly.newPlot('plot1', data1, layout);
+  Plotly.newPlot('plot2', data2, layout);
+  Plotly.newPlot('plot3', data3, layout);
+  Plotly.newPlot('plot4', data4, layout);
+  Plotly.newPlot('plot5', data5, layout)
 }
   
 getData();
