@@ -82,7 +82,7 @@ let y5 = []
 let y6 = []
 let label = []
 for (var i=0; i< data.length; i++){
-  if ( data[i]['Life_ladder']>3 && data[i]['Life_ladder']<=10 ){
+  if ( data[i]['Life_ladder']>7 && data[i]['Life_ladder']<=10 ){
   xl.push(data[i]['year'])
   yl.push(data[i]['Life_ladder'])
   y2.push(data[i]['GDP_per_capita'])
