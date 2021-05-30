@@ -7,11 +7,11 @@ import json
 
 # Connection to DB tables
 try: 
-    connection = psycopg2.connect(user = "postgres", 
-                                  password= "9102", 
-                                  host = "127.0.0.1",
+    connection = psycopg2.connect(user = "zzvkedujbigpex", 
+                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
+                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "finalProjectDB") 
+                                  database = "dcsho1ugg2d49i") 
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM three" 
     cursor.execute(selection)
@@ -26,11 +26,11 @@ finally:
         print("Connection closed")
 
 try: 
-    connection = psycopg2.connect(user = "postgres", 
-                                  password= "9102", 
-                                  host = "127.0.0.1",
+    connection = psycopg2.connect(user = "zzvkedujbigpex", 
+                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
+                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "finalProjectDB") 
+                                  database = "dcsho1ugg2d49i")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM seven" 
     cursor.execute(selection)
@@ -45,11 +45,11 @@ finally:
         print("Connection closed")
 
 try: 
-    connection = psycopg2.connect(user = "postgres", 
-                                  password= "9102", 
-                                  host = "127.0.0.1",
+    connection = psycopg2.connect(user = "zzvkedujbigpex", 
+                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
+                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "finalProjectDB") 
+                                  database = "dcsho1ugg2d49i") 
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM ten" 
     cursor.execute(selection)
@@ -65,11 +65,11 @@ finally:
 
 
 try: 
-    connection = psycopg2.connect(user = "postgres", 
-                                  password= "9102", 
-                                  host = "127.0.0.1",
+    connection = psycopg2.connect(user = "zzvkedujbigpex", 
+                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
+                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "finalProjectDB") 
+                                  database = "dcsho1ugg2d49i")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM main" 
     cursor.execute(selection)
