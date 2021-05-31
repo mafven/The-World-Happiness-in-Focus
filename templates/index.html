@@ -40,10 +40,15 @@
     <div class="container">
     <div class="masthead-subheading">Life, Wealth and Perceptions – The World’s Happiness in Focus</div>
     <div class="masthead-heading text-uppercase">From scale 1 to 10, How happy are you?</div>
+    
+    </div>
+    <input class="btn btn-primary btn-xl text-uppercase"  value="submit" onClick="process()" />
+    </div>
+
     <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot1') }}">0-3</a>
     <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot2') }}">3-7</a>
     <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot3') }}">7-10</a>
-    </div>
+
     </header>
 
     <!-- Contact-->
@@ -54,12 +59,36 @@
     <h3 class="section-subheading text-muted">git hub link here.....</h3>          
     </div>
     </section>
- 
+
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Template Main JS File -->
     <script src="{{ url_for('static',  filename='js/scripts.js') }}"></script>
 
+    <!-- <script>
+        function process() {
+        var name = String(document.form.InputName.value);
+        var age = Number(document.form.InputAge.value);
+        document.getElementById('output').innerHTML = "Your name is " +
+       name + " and your age is " + age ;
+        }
+       </script> -->
+       <script>
+        function process(){
+         //The input and output fields
+         var name = prompt("Tell me your name");
+         var intro = prompt("Over the last two weeks:");
+         var question1 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var question2 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var question3 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var question4 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var question5 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var score = Number(question1) + Number(question2) + Number(question3) + Number(question4) + Number(question5);
+         alert("Hi " + name + " your happiness score is " + score);
+        }
+        </script> 
 </body>
+
 </html>
