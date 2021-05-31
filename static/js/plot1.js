@@ -101,7 +101,7 @@ const submitButton = document.getElementById('submit');
 // Questionnaire based on the The Oxford Happiness Questionnaire  ref. readMe
 const Questionnaire = [
   {
-    question: "I don't feel particularly pleased with the way this vialization is.",
+    question: "I don't feel particularly pleased with the way this visualization is.",
     answers: {
       a: "Agree",
       b: "Disagree",
