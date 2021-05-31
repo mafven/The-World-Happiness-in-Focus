@@ -42,12 +42,12 @@
     <div class="masthead-heading text-uppercase">From scale 1 to 5, How happy are you?</div>
 
     </div>
-    <input class="btn btn-primary btn-xl text-uppercase"  value="My Happiness" onClick="process()" />
+    <input class="btn btn-primary btn-xl text-uppercase"  value="Me" onClick="process()" />
     </div>
 
     <!-- <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot1') }}">0-3</a>
     <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot2') }}">3-7</a> -->
-    <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot3') }}">World happiness</a>
+    <a class="btn btn-primary btn-xl text-uppercase" href="{{ url_for('plot3') }}">The World</a>
 
     </header>
 
@@ -70,13 +70,12 @@
        <script>
         function process(){
          //The input and output fields
-         var intro = prompt("Please indicate for each of the five statements which is closest to how you have been feeling over the last two weeks.Notice that higher numbers mean better well-being.Firstly,TELL ME YOUR NAME ...");
-         var intro2 = prompt("beeing (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time. Still want to proceed?");
-         var question1 = prompt("I have felt cheerfull and in good spirits - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
-         var question2 = prompt("I have felt calm and relaxed - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
-         var question3 = prompt("I have felt active and vigorous - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
-         var question4 = prompt("I woke up feeling fresh and rested - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
-         var question5 = prompt("My daily life has been filled with things that interest me - (5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time");
+         var name = prompt("Please indicate for each of the five statements which is closest to how you have been feeling over the last two weeks.Notice that higher numbers mean better well-being.(5)All the time / (4) Most of the time / (3) Less than half of the time / (1) Some of the time / (0) At no time.Firstly,TELL ME YOUR NAME ...");
+         var question1 = prompt("I have felt cheerfull and in good spirits ");
+         var question2 = prompt("I have felt calm and relaxed ");
+         var question3 = prompt("I have felt active and vigorous");
+         var question4 = prompt("I woke up feeling fresh and rested");
+         var question5 = prompt("My daily life has been filled with things that interest me");
          var score = Number(question1) + Number(question2) + Number(question3) + Number(question4) + Number(question5);
          alert("Hi " + name + " your happiness score is " + score);
         }
