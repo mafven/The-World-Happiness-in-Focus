@@ -9,11 +9,25 @@ console.log(data_main)
 let xl = []
 let yl = []
 let Country = []
+let Corruption = []
+let Freedom =[]
+let GDP_per_capita =[]
+let Generosity =[]
+let Life_expectancy =[]
+let Social_support = []
+
 for (var i=0; i< data_main.length; i++){
 xl.push(data_main[i]['year'])
 yl.push(data_main[i]['Life_ladder'])
-Country.push(data_main[i]['Country']) }
+Corruption.push(data_main[i]['Corruption'])
+Freedom.push(data_main[i]['Freedom'])
+GDP_per_capita.push(data_main[i]['GDP_per_capita'])
+Generosity.push(data_main[i]['Generosity'])
+Country.push(data_main[i]['Country'])
+Social_support.push(data_main[i]['Social_support'])
+Life_expectancy.push(data_main[i]['Life_expectancy'])}
 
+// add choropleth map (avg Life_ladder/ years & countries)
 var data = [{
   type: 'choropleth',
   locationmode: 'country names',
@@ -45,12 +59,12 @@ var data = [{
   colorbar: {
       autotic: false,
       tickprefix: '',
-      title: 'Life<br>Ladder'
+      title: 'Happiness<br>Index'
   }
 }];
 
 var layout = {
-title: 'Average Happiness by Countries, 2008 - 2020',
+title: 'Average Happiness by Countries, 2006 - 2020',
 geo:{
     showframe: false,
     showcoastlines: false,
@@ -64,125 +78,175 @@ geo:{
 };
 Plotly.newPlot("main", data, layout, {showLink: false});
 
+
+// add bar plot - top happiness countries 
+
+var data0 = [
+  {
+    x: xl,
+    y: yl,
+    type: 'bar',
+    orientation:'h',
+    transforms: [{
+      type: 'aggregate',
+      groups: Country,
+      aggregations: [
+        {target: 'x', func: 'avg', enabled: true},
+        {target: 'y', func: 'avg', enabled: true}
+      ]
+    }],
+  }
+];
+
+var layout = {
+  xaxis: {
+    range: [ 2006, 2020 ]
+  },
+  yaxis: {
+    range: [2, 10]
+  },
+  title:'xxx xxxx " '
+};
+
+Plotly.newPlot('plot0', data0, layout);
+
+
+
+// add plot 1 - GDP and happiness index 
+var trace1 = {
+  y: yl,
+  x: GDP_per_capita,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Team A',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+  marker: { size: 10 }
+};
+
+var data1 = [ trace1];
+
+var layout = {
+  xaxis: {
+    range: [ 5, 15]
+  },
+  yaxis: {
+    range: [2, 8]
+  },
+  title:'Happiness Index and GDP Per Capita '
+};
+
+Plotly.newPlot('plot1', data1, layout);
+
+// add plot 2 - Life_expectancy and happiness index 
+var trace1 = {
+  y: yl,
+  x: Life_expectancy,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Team A',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+  marker: { size: 10 }
+};
+
+var data2 = [ trace1];
+
+var layout = {
+  xaxis: {
+    range: [ 30, 100 ]
+  },
+  yaxis: {
+    range: [2, 8]
+  },
+  title:'Happiness Index and Life Expectancy '
+};
+
+Plotly.newPlot('plot2', data2, layout);
+
+
+// add plot 3 - Social_support and happiness index 
+var trace1 = {
+  y: yl,
+  x: Social_support,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Social support',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+  marker: { size: 10 }
+};
+
+var trace2 = {
+  y: yl,
+  x: Corruption,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Perceptions Corruption ',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+  marker: { size: 10 }
+};
+var trace3 = {
+  y: yl,
+  x: Freedom,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Perceptions Freedom',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+  marker: { size: 10 }
+};
+var data3 = [ trace1,trace2,trace3];
+
+var layout = {
+  xaxis: {
+    range: [ 0.3, 1 ]
+  },
+  yaxis: {
+    range: [2, 8]
+  },
+  title:'Life ladder and measures of "Subjective Wellbeing" '
+};
+
+Plotly.newPlot('plot3', data3, layout);
+
+
 }
 getData_main();
 
-const api_url = '/api/main'
-async function getData(){
-  const response = await fetch(api_url)
-const data = await response.json();
-console.log(data)
-
-let xl = []
-let yl = []
-let y2 = []
-let y3 = []
-let y4 = []
-let y5 = []
-let y6 = []
-let label = []
-for (var i=0; i< data.length; i++){
-  if ( data[i]['Life_ladder']>7 && data[i]['Life_ladder']<=10 ){
-  xl.push(data[i]['year'])
-  yl.push(data[i]['Life_ladder'])
-  y2.push(data[i]['GDP_per_capita'])
-  y3.push(data[i]['Life_expectancy'])
-  y4.push(data[i]['Social_support'])
-  y5.push(data[i]['Corruption'])
-  y6.push(data[i]['Freedom'])
-  label.push(data[i]['Country']) }
-  }
-var trace1 = {
-    x: xl,
-    y: yl,
-    text:label,
-    type: 'bar',
-    name: 'Life_ladder',
-    marker: {
-      color: '#F9F871',
-      opacity: 0.8,
-    }
-  };
-  
-  var trace2 = {
-    x: xl,
-    y: y2,
-    text:label,
-    type: 'bar',
-    name: 'GDP per capita',
-    marker: {
-      color: '#D02B7D',
-      opacity: 0.6
-    }
-  };
-
-  var trace3 = {
-    x: xl,
-    y: y4,
-    text:label,
-    type: 'bar',
-    name: 'Social_support',
-    marker: {
-      color: '##F85766',
-      opacity: 0.6
-    }
-  };
-
-  var trace4 = {
-    x: xl,
-    y: y5,
-    text:label,
-    type: 'bar',
-    name: 'Corruption',
-    marker: {
-      color: '#FF8C53',
-      opacity: 0.6
-    }
-  };
-
-  var trace5 = {
-    x: xl,
-    y: y6,
-    text:label,
-    type: 'bar',
-    name: 'Freedom',
-    marker: {
-      color: '#FFC351',
-      opacity: 0.5
-    }
-  };
-
-  var trace6 = {
-    x: xl,
-    y: y3,
-    text:label,
-    type: 'bar',
-    name: 'Freedom',
-    marker: {
-      color: '#FFC351',
-      opacity: 0.5
-    }
-  };
-
-  var data1 = [trace1, trace2];
-  var data2 = [trace1, trace3];
-  var data3 = [trace1, trace5];
-  var data4 = [trace1, trace4];
-  var data5 = [trace1, trace6];
-
-  var layout = {
-    title: 'Title',
-    xaxis: {
-      tickangle: -45
-    },
-    barmode: 'group'
-  };
-  
-  Plotly.newPlot('plot1', data1, layout);
-  Plotly.newPlot('plot2', data2, layout);
-  Plotly.newPlot('plot3', data3, layout);
-  Plotly.newPlot('plot4', data4, layout);
-  Plotly.newPlot('plot5', data5, layout)
-}
-  
-getData();
