@@ -101,7 +101,7 @@ const submitButton = document.getElementById('submit');
 // Questionnaire based on the The Oxford Happiness Questionnaire  ref. readMe
 const Questionnaire = [
   {
-    question: "I don't feel particularly pleased with the way this website is.",
+    question: "I don't feel particularly pleased with the way this vialization is.",
     answers: {
       a: "Agree",
       b: "Disagree",
@@ -118,7 +118,7 @@ const Questionnaire = [
     correctAnswer: "a"
   },
   {
-    question: "I find most things about this project amusing.",
+    question: "I find most things about this visualization amusing.",
     answers: {
       a: "Agree",
       b: "Disagree",
@@ -142,7 +142,7 @@ const Questionnaire = [
     correctAnswer: "a"
   },
   {
-    question: "I am well satisfied about everything in my life ( and with this project).",
+    question: "I am well satisfied about everything in my life ( and with this final project).",
     answers: {
       a: "Agree",
       b: "Disagree",
@@ -166,7 +166,7 @@ const Questionnaire = [
     correctAnswer: "a"
   },
   {
-    question: "I find beauty in some things (inclusive on this website).",
+    question: "I find beauty in many things (inclusive on this website).",
     answers: {
       a: "Agree",
       b: "Disagree",
