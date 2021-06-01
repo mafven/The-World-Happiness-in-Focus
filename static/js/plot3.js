@@ -109,6 +109,7 @@ var layout = {
 };
 
 Plotly.newPlot('plot0', data0, layout);
+Plotly.newPlot('plot00', data0, layout);
 
 
 

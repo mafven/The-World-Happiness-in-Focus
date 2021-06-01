@@ -39,24 +39,33 @@
     <section class="page-section" id="services1">
     <div class="container">
     <div class="text-center">
-    <!-- <h2 class="section-heading text-uppercase">Happy</h2> -->
+    <h3 class="section-heading text-uppercase">Happiness Index – Does measurement of 
+        “subjective wellbeing”  is  critical to define countries’ true “happiness” ? </h3>
     <h3 class="section-subheading text-muted">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
-        vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
+        The Happiness index  of countries are a mixed of  objective  and subjective variables such as  GDP, Life expectancy, perception of freedom, corruption , generosity , social support. In this final project, we will aim to check  the 
+        correlation between  those variables and the happiness index.</h3>
     </div>
 
     <div class="container">
     <div class="col-sm-8 col-sm-4 panel">
     <div id="main"></div>
-    <h3 class="section-heading text-uppercase">Lorem ipsum dolor sit amet</h3>
+    <h3 class="section-heading text-uppercase">A little bit of background….</h3>
     <h3 class="section-subheading text-muted">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
-        vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
+        The definition of the Happiness Index originates from the Bhutanese Gross National Happiness Index. In 1972, Bhutan started prioritizing happiness over other factors such as wealth, comfort and economic growth. They created an indexation for happiness based on multiple measurable factors and have kept track of this index ever since. 
+        The World Happiness Index was first created by the Global Happiness Council,a group of independent academic happiness specialists. This group of people has released the World Happiness Report (WHR) every year since 2012. 
+        </h3>
+    
+    <h3 class="section-heading text-uppercase">The top 10 happiest countries in the world….</h3>
     <div id="plot0"></div>
     
+    <h3 class="section-heading text-uppercase">The tails</h3>
+    <div id="plot00"></div>
+
     <h3 class="section-subheading text-muted">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
         vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
+
+<h3 class="section-heading text-uppercase">Happiness index and quantitative measurements Correlation</h3>
     <div id="plot1"></div>
     <div id="plot2"></div>
             
@@ -68,7 +77,8 @@
    <div class="container">
     <div class="col-sm-8 col-sm-4 panel">
     <div id="main"></div>
-    <h3 class="section-heading text-uppercase">Lorem ipsum dolor sit amet</h3>
+    <h3 class="section-heading text-uppercase">Happiness index and Subjective Wellbeing Correlation</h3>
+
     <h3 class="section-subheading text-muted">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
         vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
@@ -82,16 +92,20 @@
     <div class="container">
     <div class="col-sm-8 col-sm-4 panel">
     <div id="main"></div>
-    <h3 class="section-heading text-uppercase">Lorem ipsum dolor sit amet</h3>
-    <h3 class="section-subheading text-muted">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
-        vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
+    <h3 class="section-heading text-uppercase">Prediction Model and Feature importance</h3>
+    <h3 class="section-subheading">
+        In order to answer the question, about the importance of subjective wellbeing measurement to the happiness index . In our prediction model we removed all subjective variables such as perception of freedom, perception of corruption , generosity based on peoples survey results and only considered (trained and test) GDP and Life Expectancy against our target variable 'Life Ladder'. 
+
+        No surprisingly, our model shows that life expectancy at birth has a higher importance (77%) in relation to other variable (being the main feature of the model). 
+        using the model to make predictions based on 2021 data, our model got an R Squared of 0,68 reveals that 68% of the data fit the regression model as per below :
+        
+    .</h3>
     <div id="plot4"></div>
     <div id="plot5"></div>
         
-    <h3 class="section-subheading text-muted">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor ex at odio sagittis laoreet. Donec euismod, urna ut ultrices sodales, urna ante cursus odio, in tristique dolor tellus et neque. Aliquam rhoncus nibh sed bibendum tempor. Sed facilisis quam iaculis,
-        vulputate metus sit amet, eleifend eros. Integer nec vehicula.</h3>
+    <h3 class="section-subheading ">
+        Based on the above results of our model, seems that subjective wellbeing could be  an quite important measure of happiness .
+</h3>
     </div>
     </section>
 
