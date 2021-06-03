@@ -376,3 +376,86 @@ for (var i = 0; i < data_table.length; i++) {
 }   
 }
 getData_table()
+
+
+const api_url_top2021 = '/api/top2021'
+
+async function getData_top2021(){
+const response_top2021 = await fetch(api_url_top2021)
+const data_top2021 = await response_top2021.json();
+console.log(data_top2021)
+
+// let xl = []
+// let yl = []
+// let Country = []
+// let Corruption = []
+// let Freedom =[]
+// let GDP_per_capita =[]
+// let Generosity =[]
+// let Life_expectancy =[]
+// let Social_support = []
+
+// for (var i=0; i< data_top2021.length; i++){
+// xl.push(data_top2021[i]['year'])
+// yl.push(data_top2021[i]['life_ladder'])
+// Corruption.push(data_top2021[i]['corruption'])
+// Freedom.push(data_top2021[i]['freedom'])
+// GDP_per_capita.push(data_top2021[i]['gdp_per_capita'])
+// Generosity.push(data_top2021[i]['generosity'])
+// Country.push(data_top2021[i]['country'])
+// Social_support.push(data_top2021[i]['social_support'])
+// Life_expectancy.push(data_top2021[i]['life_expectancy'])}
+
+// // add choropleth map (avg Life_ladder/ years & countries)
+// var data2021 = [{
+//   type: 'choropleth',
+//   locationmode: 'country names',
+//   locations: Country,
+//   z: yl,
+//   text: Country,
+//   // transforms: [{
+//   //   type: 'aggregate',
+//   //   groups: Country,
+//   //   aggregations: [
+//   //     {target: 'z', func: 'avg', enabled: true},
+//   //   ]
+//   // }],
+//   colorscale: [
+//       [0,'#F9F871'],[0.35,'#FFC75F'],
+//       [0.5,'#FF9671'], [0.6,'#FF6F91'],
+//       [0.7,'#D65DB1'],[1,'#845EC2']],
+//   autocolorscale: false,
+//   reversescale: true,
+//   marker: {
+//       line: {
+//           color: 'rgb(180,180,180)',
+//           width: 0.3
+//       }
+//   },
+//   tick0: 0,
+//   zmin: 0,
+//   dtick: 1000,
+//   colorbar: {
+//       autotic: false,
+//       tickprefix: '',
+//       title: '<b>Happiness<br>Index<b>'
+//   }
+// }];
+
+// var layout = {
+// title: '<b>Average Happiness by Countries, 2021<b>',
+// geo:{
+//     showframe: false,
+//     showcoastlines: false,
+//     height: 600,
+//     width: 900,
+//     projection:{
+//     type: 'mercator'
+//     },
+//      margin: {l: 0,r: 0,b: 0,t: 0,pad: 1 }
+// }
+// };
+// Plotly.newPlot("plot4", data2021, layout, {showLink: false});
+
+}
+getData_top2021()

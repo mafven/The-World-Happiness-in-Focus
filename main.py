@@ -82,6 +82,25 @@ finally:
         connection.close()
         print("Connection closed")
 
+try: 
+    connection = psycopg2.connect(user = "otpukwazoejqjq", 
+                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  host = "ec2-52-86-25-51.compute-1.amazonaws.com",
+                                  port = "5432", 
+                                  database = "d2ip837ee83dvn") 
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+    selection = "SELECT * FROM top2021" 
+    cursor.execute(selection)
+    top2021 = cursor.fetchall()
+    top2021_df = pd.DataFrame(top2021)
+except (Exception, psycopg2.Error) as error : 
+    print ("Error", error)
+finally: 
+    if connection:
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
 
 app = Flask(__name__,static_url_path='/static')
 
@@ -134,6 +153,12 @@ def happiness2021():
     happiness2021_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
     return happiness2021_df_json
 
+@app.route("/api/top2021")
+def top2021():
+    result = top2021_df.to_json(orient="records")
+    parsed = json.loads(result)
+    top2021_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
+    return top2021_df_json
 
 if __name__ == "__main__":
     app.run(debug=True)
