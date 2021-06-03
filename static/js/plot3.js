@@ -235,7 +235,33 @@ var trace3 = {
       width: 2
     }}
 };
-var data3 = [ trace1,trace2,trace3];
+
+// add plot 3 - Generosity and happiness index 
+var trace4 = {
+  y: yl,
+  x: Generosity,
+  mode: 'markers',
+  type: 'scatter',
+  name: 'Generosity',
+  text: Country,
+  transforms: [{
+    type: 'aggregate',
+    groups: Country,
+    aggregations: [
+      {target: 'x', func: 'avg', enabled: true},
+      {target: 'y', func: 'avg', enabled: true}
+    ]
+  }],
+    marker: {
+    color: '1eae98',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: '1eae98',
+      width: 2
+    }}
+};
+var data3 = [ trace1,trace2,trace3,trace4];
 
 var layout = {
   xaxis: {
@@ -284,7 +310,7 @@ var layout = {
   yaxis: {
   title: '<b>Happiness<br>Index<b>'
   },
-  title:'<b>The happiest countries in the world between 2006 - 2020<b>'
+  // title:'<b>The happiest countries in the world between 2006 - 2020<b>'
 };
 
 Plotly.newPlot('plot0', plot0, layout);
@@ -320,7 +346,7 @@ var layout = {
   yaxis: {
   title: '<b>Happiness<br>Index<b>'
   },
-  title:'<b>The Unhappiest countries in the world between 2006 - 2020<b>'
+  // title:'<b>The Unhappiest countries in the world between 2006 - 2020<b>'
 };
 
 Plotly.newPlot('plot00', plot00, layout);
@@ -328,3 +354,25 @@ Plotly.newPlot('plot00', plot00, layout);
 }}
 getData_bottom()
 
+
+const api_url_table = '/api/happiness2021'
+async function getData_table(){
+  const response_main = await fetch(api_url_table)
+  const data_table = await response_main.json();
+  
+  console.log(data_table)
+
+  // Display each key-value pair from the metadata JSON object.
+let table = d3.select("#table");
+let tbody = table.select("tbody");
+let trow;
+for (var i = 0; i < data_table.length; i++) {
+  let Prediction = data_table[i].Prediction.toFixed(2);
+  trow = tbody.append("tr");
+  trow.append("td").text(Prediction);
+
+  let Actual = data_table[i].Actual.toFixed(2);;
+  trow.append("td").text(Actual);
+}   
+}
+getData_table()

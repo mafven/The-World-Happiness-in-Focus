@@ -10848,6 +10848,7 @@ p {
 }
 
 .page-section {
+  background-color: rgb(255, 255, 253);
   padding: 6rem 0;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
@@ -11340,3 +11341,34 @@ margin-bottom: 100px;
 #submit:hover{
 	background-color: #38a;
     }
+    .table {
+      margin: auto;
+      width: 100% !important; 
+      text-align: center; 
+      float: right;
+      padding: auto;
+   }
+     #selDataset{
+       font-size: 16px;
+     }
+     thead {
+     display:block;
+   }
+   
+     tbody {
+     display:block;
+     overflow-y:scroll;
+     height:250px;
+     color: black;
+   }
+   th{
+     text-transform: uppercase;
+     font-weight: bold;}
+   
+     td, th {
+     width: 500px;
+     text-align: left;
+   }
+   
+   tbody>tr:nth-child(even){background-color: #1a8099 !important}
+   tbody>tr:nth-child(odd){background-color: #fff !important}
