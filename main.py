@@ -7,11 +7,11 @@ import json
 
 # Connection to DB tables
 try: 
-    connection = psycopg2.connect(user = "zzvkedujbigpex", 
-                                  password= "51485eb7c89d4d9009560d46f5ea8afcc85e2646ffe59f5da4a4fcad973c93e5", 
-                                  host = "ec2-54-224-194-214.compute-1.amazonaws.com",
+    connection = psycopg2.connect(user = "otpukwazoejqjq", 
+                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
-                                  database = "dcsho1ugg2d49i")
+                                  database = "d2ip837ee83dvn") 
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     selection = "SELECT * FROM happinessoveryears" 
     cursor.execute(selection)
@@ -24,6 +24,64 @@ finally:
         cursor.close()
         connection.close()
         print("Connection closed")
+
+try: 
+    connection = psycopg2.connect(user = "otpukwazoejqjq", 
+                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  host = "ec2-52-86-25-51.compute-1.amazonaws.com",
+                                  port = "5432", 
+                                  database = "d2ip837ee83dvn") 
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+    selection = "SELECT * FROM bottom" 
+    cursor.execute(selection)
+    bottom = cursor.fetchall()
+    bottom_df = pd.DataFrame(bottom)
+except (Exception, psycopg2.Error) as error : 
+    print ("Error", error)
+finally: 
+    if connection:
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
+try: 
+    connection = psycopg2.connect(user = "otpukwazoejqjq", 
+                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  host = "ec2-52-86-25-51.compute-1.amazonaws.com",
+                                  port = "5432", 
+                                  database = "d2ip837ee83dvn") 
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+    selection = "SELECT * FROM top" 
+    cursor.execute(selection)
+    top = cursor.fetchall()
+    top_df = pd.DataFrame(top)
+except (Exception, psycopg2.Error) as error : 
+    print ("Error", error)
+finally: 
+    if connection:
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
+try: 
+    connection = psycopg2.connect(user = "otpukwazoejqjq", 
+                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  host = "ec2-52-86-25-51.compute-1.amazonaws.com",
+                                  port = "5432", 
+                                  database = "d2ip837ee83dvn") 
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+    selection = "SELECT * FROM happiness2021" 
+    cursor.execute(selection)
+    happiness2021 = cursor.fetchall()
+    happiness2021_df = pd.DataFrame(happiness2021)
+except (Exception, psycopg2.Error) as error : 
+    print ("Error", error)
+finally: 
+    if connection:
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
 
 app = Flask(__name__,static_url_path='/static')
 
@@ -55,5 +113,28 @@ def main():
     main_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
     return main_df_json
 
+@app.route("/api/bottom")
+def bottom():
+    result = bottom_df.to_json(orient="records")
+    parsed = json.loads(result)
+    bottom_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
+    return bottom_df_json
+
+@app.route("/api/top")
+def top():
+    result = top_df.to_json(orient="records")
+    parsed = json.loads(result)
+    top_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
+    return top_df_json
+
+@app.route("/api/happiness2021")
+def happiness2021():
+    result = happiness2021_df.to_json(orient="records")
+    parsed = json.loads(result)
+    happiness2021_df_json = json.dumps(parsed, skipkeys = True, allow_nan = True, indent = 6) 
+    return happiness2021_df_json
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+

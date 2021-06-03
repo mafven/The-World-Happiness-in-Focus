@@ -18,14 +18,14 @@ let Social_support = []
 
 for (var i=0; i< data_main.length; i++){
 xl.push(data_main[i]['year'])
-yl.push(data_main[i]['Life_ladder'])
-Corruption.push(data_main[i]['Corruption'])
-Freedom.push(data_main[i]['Freedom'])
-GDP_per_capita.push(data_main[i]['GDP_per_capita'])
-Generosity.push(data_main[i]['Generosity'])
-Country.push(data_main[i]['Country'])
-Social_support.push(data_main[i]['Social_support'])
-Life_expectancy.push(data_main[i]['Life_expectancy'])}
+yl.push(data_main[i]['life_ladder'])
+Corruption.push(data_main[i]['corruption'])
+Freedom.push(data_main[i]['freedom'])
+GDP_per_capita.push(data_main[i]['gdp_per_capita'])
+Generosity.push(data_main[i]['generosity'])
+Country.push(data_main[i]['country'])
+Social_support.push(data_main[i]['social_support'])
+Life_expectancy.push(data_main[i]['life_expectancy'])}
 
 // add choropleth map (avg Life_ladder/ years & countries)
 var data = [{
@@ -59,12 +59,12 @@ var data = [{
   colorbar: {
       autotic: false,
       tickprefix: '',
-      title: 'Happiness<br>Index'
+      title: '<b>Happiness<br>Index<b>'
   }
 }];
 
 var layout = {
-title: 'Average Happiness by Countries, 2006 - 2020',
+title: '<b>Average Happiness by Countries, 2006 - 2020<b>',
 geo:{
     showframe: false,
     showcoastlines: false,
@@ -79,47 +79,12 @@ geo:{
 Plotly.newPlot("main", data, layout, {showLink: false});
 
 
-// add bar plot - top happiness countries 
-
-var data0 = [
-  {
-    x: xl,
-    y: yl,
-    type: 'bar',
-    orientation:'h',
-    transforms: [{
-      type: 'aggregate',
-      groups: Country,
-      aggregations: [
-        {target: 'x', func: 'avg', enabled: true},
-        {target: 'y', func: 'avg', enabled: true}
-      ]
-    }],
-  }
-];
-
-var layout = {
-  xaxis: {
-    range: [ 2006, 2020 ]
-  },
-  yaxis: {
-    range: [2, 10]
-  },
-  title:'xxx xxxx " '
-};
-
-Plotly.newPlot('plot0', data0, layout);
-Plotly.newPlot('plot00', data0, layout);
-
-
-
 // add plot 1 - GDP and happiness index 
 var trace1 = {
   y: yl,
   x: GDP_per_capita,
   mode: 'markers',
   type: 'scatter',
-  name: 'Team A',
   text: Country,
   transforms: [{
     type: 'aggregate',
@@ -129,7 +94,14 @@ var trace1 = {
       {target: 'y', func: 'avg', enabled: true}
     ]
   }],
-  marker: { size: 10 }
+  marker: {
+    color: 'ffd384',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: 'ffd384',
+      width: 2
+    }}
 };
 
 var data1 = [ trace1];
@@ -139,9 +111,10 @@ var layout = {
     range: [ 5, 15]
   },
   yaxis: {
-    range: [2, 8]
+    range: [2, 8],
+    title: '<b>Happiness<br>Index<b>'
   },
-  title:'Happiness Index and GDP Per Capita '
+  title:'<b>Happiness Index and GDP Per Capita<b>'
 };
 
 Plotly.newPlot('plot1', data1, layout);
@@ -152,8 +125,8 @@ var trace1 = {
   x: Life_expectancy,
   mode: 'markers',
   type: 'scatter',
-  name: 'Team A',
   text: Country,
+  title: '<b>Happiness<br>Index<b>',
   transforms: [{
     type: 'aggregate',
     groups: Country,
@@ -162,7 +135,14 @@ var trace1 = {
       {target: 'y', func: 'avg', enabled: true}
     ]
   }],
-  marker: { size: 10 }
+  marker: {
+    color: 'f98404',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: 'f98404',
+      width: 2
+    }}
 };
 
 var data2 = [ trace1];
@@ -172,9 +152,10 @@ var layout = {
     range: [ 30, 100 ]
   },
   yaxis: {
-    range: [2, 8]
+    range: [2, 8],
+    title: '<b>Happiness<br>Index<b>'
   },
-  title:'Happiness Index and Life Expectancy '
+  title:'<b>Happiness Index and Life Expectancy<b>'
 };
 
 Plotly.newPlot('plot2', data2, layout);
@@ -196,7 +177,14 @@ var trace1 = {
       {target: 'y', func: 'avg', enabled: true}
     ]
   }],
-  marker: { size: 10 }
+    marker: {
+    color: 'f8615a',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: 'f8615a',
+      width: 2
+    }}
 };
 
 var trace2 = {
@@ -214,7 +202,14 @@ var trace2 = {
       {target: 'y', func: 'avg', enabled: true}
     ]
   }],
-  marker: { size: 10 }
+  marker: {
+    color: '8f4068',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: '8f4068',
+      width: 2
+    }}
 };
 var trace3 = {
   y: yl,
@@ -231,16 +226,25 @@ var trace3 = {
       {target: 'y', func: 'avg', enabled: true}
     ]
   }],
-  marker: { size: 10 }
+  marker: {
+    color: 'ffed99',
+    opacity: 0.6,
+    size: 15,
+    line: {
+      color: 'ffed99',
+      width: 2
+    }}
 };
 var data3 = [ trace1,trace2,trace3];
 
 var layout = {
   xaxis: {
-    range: [ 0.3, 1 ]
+    range: [ 0, 1 ]
   },
   yaxis: {
-    range: [2, 8]
+    range: [2, 8],
+    title: '<b>Happiness<br>Index<b>'
+    
   },
   title:'Life ladder and measures of "Subjective Wellbeing" '
 };
@@ -248,6 +252,79 @@ var layout = {
 Plotly.newPlot('plot3', data3, layout);
 
 
+
 }
 getData_main();
+
+
+const api_url_top = '/api/top'
+async function getData_top(){
+const response_main = await fetch(api_url_top)
+const data_top = await response_main.json();
+console.log(data_top)
+// add bar plot - top happiness countries 
+
+let yl = []
+let Country = []
+for (var i=0; i< data_top.length; i++){
+yl.push(data_top[i]['life_ladder'])
+Country.push(data_top[i]['country'])
+
+var plot0 = [
+  {
+    x: Country,
+    y: yl,
+    type: 'bar',
+    marker: {
+      color: 'ffd56b'
+    }}
+];
+
+var layout = {
+  yaxis: {
+  title: '<b>Happiness<br>Index<b>'
+  },
+  title:'<b>The happiest countries in the world between 2006 - 2020<b>'
+};
+
+Plotly.newPlot('plot0', plot0, layout);
+
+}}
+getData_top()
+
+const api_url_bottom = '/api/bottom'
+
+async function getData_bottom(){
+const response_main = await fetch(api_url_bottom)
+const data_bottom = await response_main.json();
+console.log(data_bottom)
+
+// add bar plot - data_bottom happiness countries 
+let yl = []
+let Country = []
+for (var i=0; i< data_bottom.length; i++){
+yl.push(data_bottom[i]['life_ladder'])
+Country.push(data_bottom[i]['country'])
+
+var plot00 = [
+  {
+    x: Country,
+    y: yl,
+    type: 'bar',
+    marker: {
+      color: 'ac66cc'
+    }}
+];
+
+var layout = {
+  yaxis: {
+  title: '<b>Happiness<br>Index<b>'
+  },
+  title:'<b>The Unhappiest countries in the world between 2006 - 2020<b>'
+};
+
+Plotly.newPlot('plot00', plot00, layout);
+
+}}
+getData_bottom()
 
