@@ -21,13 +21,13 @@ In total, we have six variables, and each variable reveals a populated-weighted 
       -	GDP per capita (Each country calculates GDP independently
 
 ### 1.2 References/Dependences & Tools
-    - Python Pandas /Python Matplotlib 
+    - Python Pandas / Matplotlib /Flask
     - Sckit-Learn
-    - HTML/CSS/Bootstrap
-    - JS Plotly/D3 (tbc)
-    - JS Leaflet (tbc)
-    - PostgreSQL database
-    - Amazon AWS (tbc)
+    - HTML/CSS/Bootstrap templates
+    - JS Plotly/D3
+    - choropleth map
+    - PostgreSQL
+    - Heroku 
 
 ### Heroku deployment
 
