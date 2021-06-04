@@ -64,7 +64,7 @@ var data = [{
 }];
 
 var layout = {
-title: '<b>Average Happiness by Countries, 2006 - 2020<b>',
+title: 'Average Happiness by Countries, 2006 - 2020',
 geo:{
     showframe: false,
     showcoastlines: false,
