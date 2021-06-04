@@ -17,15 +17,15 @@ let Life_expectancy =[]
 let Social_support = []
 
 for (var i=0; i< data_main.length; i++){
-xl.push(data_main[i]['year'])
-yl.push(data_main[i]['life_ladder'])
-Corruption.push(data_main[i]['corruption'])
-Freedom.push(data_main[i]['freedom'])
-GDP_per_capita.push(data_main[i]['gdp_per_capita'])
-Generosity.push(data_main[i]['generosity'])
-Country.push(data_main[i]['country'])
-Social_support.push(data_main[i]['social_support'])
-Life_expectancy.push(data_main[i]['life_expectancy'])}
+xl.push(data_main[i]['year']);
+yl.push(data_main[i]['life_ladder']).toFixed(2);
+Corruption.push(data_main[i]['corruption']).toFixed(2);
+Freedom.push(data_main[i]['freedom']).toFixed(2);
+GDP_per_capita.push(data_main[i]['gdp_per_capita']).toFixed(2);
+Generosity.push(data_main[i]['generosity']).toFixed(2);
+Country.push(data_main[i]['country']);
+Social_support.push(data_main[i]['social_support']).toFixed(2);
+Life_expectancy.push(data_main[i]['life_expectancy']).toFixed(2);}
 
 // add choropleth map (avg Life_ladder/ years & countries)
 var data = [{
