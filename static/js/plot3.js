@@ -577,6 +577,5 @@ var layout = {
   barmode: 'group'
 };
 Plotly.newPlot("plot5", databottom2021, layout, {showLink: false});
-
 }
 getData_bottom2021()
