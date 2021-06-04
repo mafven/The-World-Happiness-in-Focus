@@ -272,7 +272,7 @@ var layout = {
     title: '<b>Happiness<br>Index<b>'
     
   },
-  title:'Life ladder and measures of "Subjective Wellbeing" '
+  title:'Happiness Index and measures of "Subjective Wellbeing" '
 };
 
 Plotly.newPlot('plot3', data3, layout);
@@ -468,7 +468,7 @@ var trace5 = {
 var datatop2021 = [trace1,trace2,trace3,trace4,trace5];
 
 var layout = {
-  title: 'Life ladder and measures of "Subjective Wellbeing - Top Countries 2021',
+  title: 'Happiness Index and measures of "Subjective Wellbeing - Top Countries 2021',
   xaxis: {
     tickangle: -45
   },
@@ -570,7 +570,7 @@ var trace5 = {
 var databottom2021 = [trace1,trace2,trace3,trace4,trace5];
 
 var layout = {
-  title: 'Life ladder and measures of "Subjective Wellbeing - Bottom Countries 2021',
+  title: 'Happiness Index and measures of "Subjective Wellbeing - Bottom Countries 2021',
   xaxis: {
     tickangle: -45
   },
