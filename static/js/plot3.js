@@ -95,11 +95,11 @@ var trace1 = {
     ]
   }],
   marker: {
-    color: 'ffd384',
-    opacity: 0.6,
-    size: 15,
+    color: '#4C5270',
+    opacity: 0.8,
+    size: 13,
     line: {
-      color: 'ffd384',
+      color: '#4C5270',
       width: 2
     }}
 };
@@ -136,11 +136,11 @@ var trace1 = {
     ]
   }],
   marker: {
-    color: 'f98404',
-    opacity: 0.6,
-    size: 15,
+    color: '#FFA384',
+    opacity: 0.8,
+    size: 13,
     line: {
-      color: 'f98404',
+      color: '#FFA384',
       width: 2
     }}
 };
@@ -192,7 +192,7 @@ var trace2 = {
   x: Corruption,
   mode: 'markers',
   type: 'scatter',
-  name: 'Perceptions Corruption ',
+  name: 'Corruption ',
   text: Country,
   transforms: [{
     type: 'aggregate',
@@ -216,7 +216,7 @@ var trace3 = {
   x: Freedom,
   mode: 'markers',
   type: 'scatter',
-  name: 'Perceptions Freedom',
+  name: 'Freedom',
   text: Country,
   transforms: [{
     type: 'aggregate',
@@ -302,7 +302,7 @@ var plot0 = [
     y: yl,
     type: 'bar',
     marker: {
-      color: 'ffd56b'
+      color: '#E1C340'
     }}
 ];
 
@@ -338,7 +338,7 @@ var plot00 = [
     y: yl,
     type: 'bar',
     marker: {
-      color: 'ac66cc'
+      color: '#D8A7B1'
     }}
 ];
 
@@ -385,77 +385,198 @@ const response_top2021 = await fetch(api_url_top2021)
 const data_top2021 = await response_top2021.json();
 console.log(data_top2021)
 
-// let xl = []
-// let yl = []
-// let Country = []
-// let Corruption = []
-// let Freedom =[]
-// let GDP_per_capita =[]
-// let Generosity =[]
-// let Life_expectancy =[]
-// let Social_support = []
+let yl = []
+let label = []
+let Corruption = []
+let Freedom =[]
+let GDP_per_capita =[]
+let Generosity =[]
+let Life_expectancy =[]
+let Social_support = []
 
-// for (var i=0; i< data_top2021.length; i++){
-// xl.push(data_top2021[i]['year'])
-// yl.push(data_top2021[i]['life_ladder'])
-// Corruption.push(data_top2021[i]['corruption'])
-// Freedom.push(data_top2021[i]['freedom'])
-// GDP_per_capita.push(data_top2021[i]['gdp_per_capita'])
-// Generosity.push(data_top2021[i]['generosity'])
-// Country.push(data_top2021[i]['country'])
-// Social_support.push(data_top2021[i]['social_support'])
-// Life_expectancy.push(data_top2021[i]['life_expectancy'])}
+for (var i=0; i< data_top2021.length; i++){
+yl.push(data_top2021[i]['life_ladder'])
+Corruption.push(data_top2021[i]['corruption'])
+Freedom.push(data_top2021[i]['freedom'])
+GDP_per_capita.push(data_top2021[i]['gdp_per_capita'])
+Generosity.push(data_top2021[i]['generosity'])
+label.push(data_top2021[i]['country'])
+Social_support.push(data_top2021[i]['social_support'])
+Life_expectancy.push(data_top2021[i]['life_expectancy'])}
 
-// // add choropleth map (avg Life_ladder/ years & countries)
-// var data2021 = [{
-//   type: 'choropleth',
-//   locationmode: 'country names',
-//   locations: Country,
-//   z: yl,
-//   text: Country,
-//   // transforms: [{
-//   //   type: 'aggregate',
-//   //   groups: Country,
-//   //   aggregations: [
-//   //     {target: 'z', func: 'avg', enabled: true},
-//   //   ]
-//   // }],
-//   colorscale: [
-//       [0,'#F9F871'],[0.35,'#FFC75F'],
-//       [0.5,'#FF9671'], [0.6,'#FF6F91'],
-//       [0.7,'#D65DB1'],[1,'#845EC2']],
-//   autocolorscale: false,
-//   reversescale: true,
-//   marker: {
-//       line: {
-//           color: 'rgb(180,180,180)',
-//           width: 0.3
-//       }
-//   },
-//   tick0: 0,
-//   zmin: 0,
-//   dtick: 1000,
-//   colorbar: {
-//       autotic: false,
-//       tickprefix: '',
-//       title: '<b>Happiness<br>Index<b>'
-//   }
-// }];
+var trace1 = {
+  x: label,
+  y: yl,
+  text:label,
+  type: 'line',
+  name: 'Happiness Index',
+  marker: {
+    color: '#ac66cc',
+    opacity: 0.8,
+  }
+};
 
-// var layout = {
-// title: '<b>Average Happiness by Countries, 2021<b>',
-// geo:{
-//     showframe: false,
-//     showcoastlines: false,
-//     height: 600,
-//     width: 900,
-//     projection:{
-//     type: 'mercator'
-//     },
-//      margin: {l: 0,r: 0,b: 0,t: 0,pad: 1 }
-// }
-// };
-// Plotly.newPlot("plot4", data2021, layout, {showLink: false});
+var trace2 = {
+  x: label,
+  y: Social_support,
+  text:label,
+  type: 'bar',
+  name: 'Social Support',
+  marker: {
+    color: '#D02B7D',
+    opacity: 0.6
+  }
+};
+
+var trace3 = {
+  x: label,
+  y: Generosity,
+  text:label,
+  type: 'bar',
+  name: 'Generosity',
+  marker: {
+    color: '##F85766',
+    opacity: 0.6
+  }
+};
+
+var trace4 = {
+  x: label,
+  y: Corruption,
+  text:label,
+  type: 'bar',
+  name: 'Corruption',
+  marker: {
+    color: '#FF8C53',
+    opacity: 0.6
+  }
+};
+
+var trace5 = {
+  x: label,
+  y: Freedom,
+  text:label,
+  type: 'bar',
+  name: 'Freedom',
+  marker: {
+    color: '#FFC351',
+    opacity: 0.5
+  }
+};
+
+
+var datatop2021 = [trace1,trace2,trace3,trace4,trace5];
+
+var layout = {
+  title: 'Life ladder and measures of "Subjective Wellbeing - Top Countries 2021',
+  xaxis: {
+    tickangle: -45
+  },
+  barmode: 'group'
+};
+Plotly.newPlot("plot4", datatop2021, layout, {showLink: false});
+
 
 }
 getData_top2021()
+
+
+const api_url_bottom2021 = '/api/bottom2021'
+async function getData_bottom2021(){
+const response_bottom2021 = await fetch(api_url_bottom2021)
+const data_bottom2021 = await response_bottom2021.json();
+console.log(data_bottom2021)
+
+let yl = []
+let label = []
+let Corruption = []
+let Freedom =[]
+let GDP_per_capita =[]
+let Generosity =[]
+let Life_expectancy =[]
+let Social_support = []
+
+for (var i=0; i< data_bottom2021.length; i++){
+yl.push(data_bottom2021[i]['life_ladder'])
+Corruption.push(data_bottom2021[i]['corruption'])
+Freedom.push(data_bottom2021[i]['freedom'])
+GDP_per_capita.push(data_bottom2021[i]['gdp_per_capita'])
+Generosity.push(data_bottom2021[i]['generosity'])
+label.push(data_bottom2021[i]['country'])
+Social_support.push(data_bottom2021[i]['social_support'])
+Life_expectancy.push(data_bottom2021[i]['life_expectancy'])}
+
+var trace1 = {
+  x: label,
+  y: yl,
+  text:label,
+  type: 'line',
+  name: 'Happiness Index',
+  marker: {
+    color: '#ac66cc',
+    opacity: 0.8,
+  }
+};
+
+var trace2 = {
+  x: label,
+  y: Social_support,
+  text:label,
+  type: 'bar',
+  name: 'Social Support',
+  marker: {
+    color: '#D02B7D',
+    opacity: 0.6
+  }
+};
+
+var trace3 = {
+  x: label,
+  y: Generosity,
+  text:label,
+  type: 'bar',
+  name: 'Generosity',
+  marker: {
+    color: '##F85766',
+    opacity: 0.6
+  }
+};
+
+var trace4 = {
+  x: label,
+  y: Corruption,
+  text:label,
+  type: 'bar',
+  name: 'Corruption',
+  marker: {
+    color: '#FF8C53',
+    opacity: 0.6
+  }
+};
+
+var trace5 = {
+  x: label,
+  y: Freedom,
+  text:label,
+  type: 'bar',
+  name: 'Freedom',
+  marker: {
+    color: '#FFC351',
+    opacity: 0.5
+  }
+};
+
+
+var databottom2021 = [trace1,trace2,trace3,trace4,trace5];
+
+var layout = {
+  title: 'Life ladder and measures of "Subjective Wellbeing - Bottom Countries 2021',
+  xaxis: {
+    tickangle: -45
+  },
+  barmode: 'group'
+};
+Plotly.newPlot("plot5", databottom2021, layout, {showLink: false});
+
+}
+getData_bottom2021()

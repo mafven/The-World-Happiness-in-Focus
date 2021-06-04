@@ -81,18 +81,20 @@ Using this information, we will look to find out which  measurements of well-bei
 
 <div id="plot3"></div>
     
-<h3 class="section-subheading text-muted">At the other hand, there are very low correlation between perception of Curroption, social support and Freedom when compared to GDP and life expectancy, very possible due to the subjectivity of the way data are 
-    collected and the abstract form of the questionnaire.</h3>
+<h3 class="section-subheading text-muted">On the other hand, there is very little 
+    correlation between perceptions of Corruption, Social Support and Freedom when compared 
+    to GDP and Life Expectancy.This is possibly due to the subjectivity in the way data was 
+    collected and the abstract vagueness of the questionnaire.</h3>
     </div>
 
     <div class="container">
     <div class="col-sm-8 col-sm-4 panel">
     <div id="main"></div>
-    <h3 class="section-heading text-uppercase">Prediction Model</h3>
+    <h3 class="section-heading">Prediction Model based on GDP and Life Expectancy</h3>
     <p>
         In order to answer the question about the importance of subjective wellbeing measurements to the 
         happiness index, we have removed all subjective variables from our prediction model, 
-        such as perception of freedom, perception of corruption, generosity.
+        such as perception of freedom, corruption and generosity.
         These variables were based on survey results and the only considered variables were GDP and
         Life Expectancy for training and testing our data. </p>
 
@@ -100,14 +102,8 @@ Using this information, we will look to find out which  measurements of well-bei
         in relation to the second variable GDP, therefore being the main feature of the model. </p>
         
     <p>Using the trained model to make predictions on 2021 data, we got an R-Squared value of 0.64 revealing
-        that 64% of the data fit the regression model. 
-        The table below shows the Predication (and Actual) happiness index for 2021:</p>
-
-            
-        <p>
-            Based on the results , it appaears that subjective wellbeing mesurements could be 
-            a relatively significant measure of happiness.
-        </p> 
+        that 64% of the data fits the regression model. 
+        The table below shows the prediction (and actual) Happiness Index for 2021:</p>
         <div class="container">
             <div class="row ">
                 <div class="col-md-12 panel"></div>
@@ -125,9 +121,15 @@ Using this information, we will look to find out which  measurements of well-bei
                 </div>
             </div>
           </div>
+          <br> 
+        <p>
+            Based on the above results, it appears that subjective wellbeing mesurements could be 
+            a relatively significant measure of happiness.
+        </p> 
 
           <div id="plot4"></div>
-
+          <br>
+          <div id="plot5"></div>
 
     </div>
     </section>

@@ -11343,7 +11343,7 @@ margin-bottom: 100px;
     }
     .table {
       margin: auto;
-      width: 100% !important; 
+      width: 60% !important; 
       text-align: center; 
       float: right;
       padding: auto;
@@ -11358,7 +11358,7 @@ margin-bottom: 100px;
      tbody {
      display:block;
      overflow-y:scroll;
-     height:250px;
+     height:150px;
      color: black;
    }
    th{
@@ -11369,6 +11369,6 @@ margin-bottom: 100px;
      width: 500px;
      text-align: left;
    }
-   
-   tbody>tr:nth-child(even){background-color: #1a8099 !important}
+
+   tbody>tr:nth-child(even){background-color: #55cfbd !important}
    tbody>tr:nth-child(odd){background-color: #fff !important}
