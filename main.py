@@ -8,7 +8,7 @@ import json
 # Connection to DB tables
 try: 
     connection = psycopg2.connect(user = "otpukwazoejqjq", 
-                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  password= "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
@@ -27,7 +27,7 @@ finally:
 
 try: 
     connection = psycopg2.connect(user = "otpukwazoejqjq", 
-                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  password= "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
@@ -46,7 +46,7 @@ finally:
 
 try: 
     connection = psycopg2.connect(user = "otpukwazoejqjq", 
-                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  password= "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
@@ -65,7 +65,7 @@ finally:
 
 try: 
     connection = psycopg2.connect(user = "otpukwazoejqjq", 
-                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  password= "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
@@ -83,7 +83,7 @@ finally:
         print("Connection closed")
 
 try: 
-    connection = psycopg2.connect(user = "otp16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+    connection = psycopg2.connect(user = "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
@@ -103,7 +103,7 @@ finally:
 
 try: 
     connection = psycopg2.connect(user = "otpukwazoejqjq", 
-                                  password= "16ef15d3d40edbc7e10e0d8f9f45e3267a73732a9221ca58d06bdec93c658baa", 
+                                  password= "pw", 
                                   host = "ec2-52-86-25-51.compute-1.amazonaws.com",
                                   port = "5432", 
                                   database = "d2ip837ee83dvn") 
